@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="account_invoice_portal_content" inherit_id="account.report_invoice_document">
+        <th name="th_taxes" t-attf-class="text-start {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}" position="after">
+            <th class="text-end">
+                <span>Discount Amount</span>
+            </th>
+        </th>
+        <td name="td_taxes" t-attf-class="text-start {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }} {{ 'text-nowrap' if len(taxes) &lt; 10 else '' }}" position="after">
+            <td class="text-end" id="invoice_discount">
+                <span t-field="line.discount_amount"></span>
+            </td>
+        </td>
+    </template>
+</odoo>
